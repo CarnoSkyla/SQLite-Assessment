@@ -19,11 +19,11 @@ namespace People
             App.PersonRepo.AddNewPerson(newPerson.Text);
             StatusMessage.Text = App.PersonRepo.StatusMessage;
         }
-        public void OnGetButtonClicked(object sender, EventArgs args)
+        public async void OnGetButtonClicked(object sender, EventArgs args)
         {
             StatusMessage.Text = "";
 
-            List<Person> people = App.PersonRepo.GetAllPeople();
+            List<Person> people = await App.PersonRepo.GetAllPeople();
             peopleList.ItemsSource = people;
         }
 
